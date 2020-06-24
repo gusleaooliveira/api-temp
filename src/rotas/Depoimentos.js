@@ -10,7 +10,6 @@ const collection = "depoimento";
 
 const cliente = new MongoClient(url);
 
-router.use(bodyParser.urlencoded());
 router.use(bodyParser.json());
 router.use(cors());
 
@@ -58,10 +57,6 @@ router.get("/depoimentos/:id", (req, res, next) => {
 });
 
 router.post("/depoimentos", (req, res, next) => {
-	console.log("====================");
-	console.log(req.body);
-	console.log("====================");
-
 	async function executar(){
 		try {
 			await cliente.connect();
@@ -119,3 +114,5 @@ router.delete("/depoimentos/:id", (req, res, next) => {
 });
 
 module.exports = router;
+
+
