@@ -9,5 +9,21 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js"
-  }
+  },
+  "name": "api",
+  "description": "> Está disponível no [link](https://mrconstrucoes.herokuapp.com/)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusleaooliveira/api-temp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gusleaooliveira/api-temp/issues"
+  },
+  "homepage": "https://github.com/gusleaooliveira/api-temp#readme"
 }
