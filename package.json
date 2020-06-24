@@ -8,7 +8,7 @@
     "telegram-send-message": "^0.0.4"
   },
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "start": "nodemon src/index.js"
   },
   "name": "api",
   "description": "> Está disponível no [link](https://mrconstrucoes.herokuapp.com/)",
