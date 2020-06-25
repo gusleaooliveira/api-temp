@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node index.js"
   },
   "name": "api",
   "description": "> Está disponível no [link](https://mrconstrucoes.herokuapp.com/)",
