@@ -10,7 +10,9 @@ const collection = "depoimento";
 
 const cliente = new MongoClient(url);
 
-router.use(express.bodyParser());
+router.use(bodyParser.urlencoded({extended: false}));
+router.use(bodyParser.json());
+router.use(bodyParser.raw());
 router.use(cors());
 
 router.use((req, res, next) => {
