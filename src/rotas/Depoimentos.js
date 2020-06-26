@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const multer = require("multer");
 const cors = require("cors");
 const router = express.Router();
 const { MongoClient, ObjectId } = require("mongodb");
@@ -14,7 +13,6 @@ const cliente = new MongoClient(url);
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
 router.use(bodyParser.raw());
-router.use(multer());
 router.use(cors());
 
 router.use((req, res, next) => {
