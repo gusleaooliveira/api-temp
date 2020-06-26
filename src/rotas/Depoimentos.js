@@ -65,7 +65,6 @@ router.post("/depoimentos", (req, res, next) => {
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
 			let resposta = await colecao.insertOne(corpo);
-			console.log("Resposta:",resposta);
 			console.log("==============================================");
 			res.sendStatus(200);
 		}
@@ -86,7 +85,6 @@ router.put("/depoimentos", (req, res, next) => {
 				{ _id : ObjectId(String(req.body["query"]._id)) },
 				req.body["update"]
 			);
-			console.log("Resposta:",resposta);
 			console.log("==============================================");
 			res.sendStatus(200);
 		}
@@ -104,7 +102,6 @@ router.delete("/depoimentos/:id", (req, res, next) => {
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
 			let resposta = await colecao.findOneAndDelete({ _id: ObjectId(String(req.params.id)) });
-			console.log("Resposta:",resposta);
 			console.log("==============================================");
 			res.sendStatus(200);
 		}
