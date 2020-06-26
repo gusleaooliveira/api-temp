@@ -14,7 +14,9 @@ const cliente = new MongoClient(url);
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
 router.use(bodyParser.raw());
+router.use(expressValidator);
 router.use(cors());
+
 
 router.use((req, res, next) => {
 	let data = new Date();
