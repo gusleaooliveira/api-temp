@@ -13,7 +13,7 @@ const cliente = new MongoClient(url);
 router.use(bodyParser.json());
 router.use(cors());
 
-router.use((req, res, next) => {	
+router.use((req, res, next) => {
 	let data = new Date();
 	console.log("==============================================");
 	console.log("Log:",data.getDate()+"/"+data.getMonth()+"/"+data.getYear(),data.getHours()+":"+data.getMinutes());
@@ -29,7 +29,7 @@ router.get("/depoimentos", (req, res, next) => {
 			let resposta = await colecao.find({}).toArray();
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
-			res.status(200).send(resposta); 
+			res.status(200).send(resposta);
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
@@ -47,7 +47,7 @@ router.get("/depoimentos/:id", (req, res, next) => {
 			let resposta = await colecao.find({ _id: ObjectId(String(req.params.id)) }).toArray();
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
-			res.status(200).send(resposta); 
+			res.status(200).send(resposta);
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
@@ -57,15 +57,17 @@ router.get("/depoimentos/:id", (req, res, next) => {
 });
 
 router.post("/depoimentos", (req, res, next) => {
+	let corpo = req.body;
+	console.log(corpo);
 	async function executar(){
 		try {
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
-			let resposta = await colecao.insertOne(req.body);
+			let resposta = await colecao.insertOne(corpo);
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
-			res.sendStatus(200); 
+			res.sendStatus(200);
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
@@ -81,12 +83,12 @@ router.put("/depoimentos", (req, res, next) => {
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
 			let resposta = await colecao.findOneAndReplace(
-				{ _id : ObjectId(String(req.body["query"]._id)) }, 
+				{ _id : ObjectId(String(req.body["query"]._id)) },
 				req.body["update"]
 			);
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
-			res.sendStatus(200); 
+			res.sendStatus(200);
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
@@ -104,7 +106,7 @@ router.delete("/depoimentos/:id", (req, res, next) => {
 			let resposta = await colecao.findOneAndDelete({ _id: ObjectId(String(req.params.id)) });
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
-			res.sendStatus(200); 
+			res.sendStatus(200);
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
@@ -114,5 +116,3 @@ router.delete("/depoimentos/:id", (req, res, next) => {
 });
 
 module.exports = router;
-
-
