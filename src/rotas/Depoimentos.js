@@ -10,7 +10,7 @@ const collection = "depoimento";
 
 const cliente = new MongoClient(url);
 
-router.use(bodyParser.urlencoded({extended: true}));
+router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 router.use(bodyParser.raw());
 router.use(cors());
@@ -69,7 +69,7 @@ router.post("/depoimentos", (req, res, next) => {
 			let colecao = db.collection(collection);
 			let resposta = await colecao.insertOne(corpo);
 			console.log("==============================================");
-			res.sendStatus(200);
+			res.send({msg: "OK"});
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
