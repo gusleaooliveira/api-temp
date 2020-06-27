@@ -69,7 +69,7 @@ router.post("/depoimentos", (req, res, next) => {
 			let colecao = db.collection(collection);
 			let resposta = await colecao.insertOne(corpo);
 			console.log("==============================================");
-			res.send({msg: "OK"});
+			res.sendStatus(200);
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
