@@ -6,7 +6,7 @@ const router = express.Router();
 
 const url = "mongodb+srv://gusleaooliveira:65s-xtfuDTGH-Qj@cluster0-twwyw.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
 const banco = "api_mrconstrucoes";
-const collection = "depoimento";
+const collection = "imagens";
 
 const cliente = new MongoClient(url);
 
@@ -22,7 +22,7 @@ router.use((req, res, next) => {
 	next();
 });
 
-router.get("/depoimentos", (req, res, next) => {
+router.get("/imagens", (req, res, next) => {
 	async function executar(){
 		try {
 			await cliente.connect();
@@ -40,7 +40,101 @@ router.get("/depoimentos", (req, res, next) => {
 	executar();
 });
 
-router.get("/depoimentos/:id", (req, res, next) => {
+
+router.get("/imagens/minimo", (req, res, next) => {
+	async function executar(){
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.find({"imagem": "minimo"}).toArray();
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+	}
+	executar();
+});
+
+router.get("/imagens/menor", (req, res, next) => {
+	async function executar(){
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.find({"tamanho": "menor"}).toArray();
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+	}
+	executar();
+});
+
+
+router.get("/imagens/medio", (req, res, next) => {
+	async function executar(){
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.find({"tamanho": "medio"}).toArray();
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+	}
+	executar();
+});
+
+
+router.get("/imagens/gigante", (req, res, next) => {
+	async function executar(){
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.find({"tamanho": "gigante"}).toArray();
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+	}
+	executar();
+});
+
+
+router.get("/imagens/xgigante", (req, res, next) => {
+	async function executar(){
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.find({"tamanho": "xgigante"}).toArray();
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+	}
+	executar();
+});
+
+router.get("/imagens/:id", (req, res, next) => {
 	async function executar(){
 		try {
 			await cliente.connect();
@@ -58,7 +152,7 @@ router.get("/depoimentos/:id", (req, res, next) => {
 	executar();
 });
 
-router.post("/depoimentos", (req, res, next) => {
+router.post("/imagens", (req, res, next) => {
 	let corpo = req.body;
 	console.log(corpo);
 	async function executar(){
@@ -77,7 +171,7 @@ router.post("/depoimentos", (req, res, next) => {
 	executar();
 });
 
-router.put("/depoimentos", (req, res, next) => {
+router.put("/imagens", (req, res, next) => {
 	async function executar(){
 		try {
 			await cliente.connect();
@@ -97,7 +191,7 @@ router.put("/depoimentos", (req, res, next) => {
 	executar();
 });
 
-router.delete("/depoimentos/:id", (req, res, next) => {
+router.delete("/imagens/:id", (req, res, next) => {
 	async function executar(){
 		try {
 			await cliente.connect();

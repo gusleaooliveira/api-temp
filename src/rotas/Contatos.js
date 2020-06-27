@@ -16,7 +16,7 @@ router.use(bodyParser.raw());
 router.use(cors());
 
 router.use((req, res, next) => {
-  let data = new Data();
+  let data = new Date();
 	console.log("==============================================");
 	console.log("Log:",data.getDate()+"/"+data.getMonth()+"/"+data.getYear(),data.getHours()+":"+data.getMinutes());
   next();
