@@ -1,6 +1,9 @@
 # Api Rest - MRConstruções
 
-> Está disponível no [link](https://mrconstrucoes.herokuapp.com/)
+## Localização dos códigos:
+
+### Api
+Os códigos estarão no [repositório](https://github.com/gusleaooliveira/api-temp), e serão executadas na **heroku** no  seguinte [link](https://mrconstrucoes.herokuapp.com/).
 
 
 Vai ser criada uma api rest com as seguintes url's:
@@ -37,4 +40,3 @@ Olá me chamo Gustavo, e criei este material, para mais informações, clique no
 
 * [LinkTree](https://www.linktree.com.br/gusleaooliveira)
 * Disponível em : [Repositório do trabalho](https://github.com/gusleaooliveira/api-mrconstrucoesapp)
-
