@@ -6,7 +6,7 @@ const router = express.Router();
 
 const url = "mongodb+srv://gusleaooliveira:65s-xtfuDTGH-Qj@cluster0-twwyw.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
 const banco = "api_mrconstrucoes";
-const collection = "depoimento";
+const collection = "depoimentos";
 
 const cliente = new MongoClient(url);
 
