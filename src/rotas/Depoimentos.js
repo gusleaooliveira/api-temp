@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const expressValidator = require("express-validator");
 const { MongoClient, ObjectId } = require("mongodb");
 const router = express.Router();
 
@@ -14,7 +13,6 @@ const cliente = new MongoClient(url);
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
 router.use(bodyParser.raw());
-router.use(expressValidator);
 router.use(cors());
 
 
