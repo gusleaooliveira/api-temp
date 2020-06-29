@@ -4,11 +4,11 @@ const bodyParser = require("body-parser");
 const { MongoClient, ObjectId } = require("mongodb");
 const router = express.Router();
 
-const url = "mongodb+srv://gusleaooliveira:65s-xtfuDTGH-Qj@cluster0-twwyw.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const url = "mongodb+srv://gusleaooliveira:<password>@cluster0.twwyw.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
 const banco = "api_mrconstrucoes";
 const collection = "depoimentos";
 
-const cliente = new MongoClient(url);
+const cliente = new MongoClient(url, {useNewUrlParser: true});
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
