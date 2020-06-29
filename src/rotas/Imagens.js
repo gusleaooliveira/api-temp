@@ -25,6 +25,7 @@ router.use((req, res, next) => {
 router.get("/imagens", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -36,6 +37,9 @@ router.get("/imagens", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -44,6 +48,7 @@ router.get("/imagens", (req, res, next) => {
 router.get("/imagens/minimo", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -55,6 +60,9 @@ router.get("/imagens/minimo", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -62,6 +70,7 @@ router.get("/imagens/minimo", (req, res, next) => {
 router.get("/imagens/menor", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -73,6 +82,9 @@ router.get("/imagens/menor", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -81,6 +93,7 @@ router.get("/imagens/menor", (req, res, next) => {
 router.get("/imagens/medio", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -92,6 +105,9 @@ router.get("/imagens/medio", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -100,6 +116,7 @@ router.get("/imagens/medio", (req, res, next) => {
 router.get("/imagens/gigante", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -111,6 +128,9 @@ router.get("/imagens/gigante", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -119,6 +139,7 @@ router.get("/imagens/gigante", (req, res, next) => {
 router.get("/imagens/xgigante", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -130,6 +151,9 @@ router.get("/imagens/xgigante", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -137,6 +161,7 @@ router.get("/imagens/xgigante", (req, res, next) => {
 router.get("/imagens/:id", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -148,6 +173,9 @@ router.get("/imagens/:id", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -157,6 +185,7 @@ router.post("/imagens", (req, res, next) => {
 	console.log(corpo);
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -167,6 +196,9 @@ router.post("/imagens", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -174,6 +206,7 @@ router.post("/imagens", (req, res, next) => {
 router.put("/imagens", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -187,6 +220,9 @@ router.put("/imagens", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -194,6 +230,7 @@ router.put("/imagens", (req, res, next) => {
 router.delete("/imagens/:id", (req, res, next) => {
 	async function executar(){
 		try {
+			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -203,6 +240,9 @@ router.delete("/imagens/:id", (req, res, next) => {
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
+		}
+		finally{
+			cliente.close();
 		}
 	}
 	executar();

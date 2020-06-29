@@ -8,7 +8,6 @@ const url = "mongodb+srv://gusleaooliveira:65s-xtfuDTGH-Qj@cluster0.twwyw.gcp.mo
 const banco = "api_mrconstrucoes";
 const collection = "contatos";
 
-const cliente = new MongoClient(url, {useNewUrlParser: true});
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
@@ -25,6 +24,7 @@ router.use((req, res, next) => {
 router.get("/contatos", (req, res, next) => {
 	async function executar(){
 		try {
+      const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -36,6 +36,9 @@ router.get("/contatos", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -43,6 +46,7 @@ router.get("/contatos", (req, res, next) => {
 router.get("/contatos/:id", (req, res, next) => {
 	async function executar(){
 		try {
+      const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -54,6 +58,9 @@ router.get("/contatos/:id", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -63,6 +70,7 @@ router.post("/contatos", (req, res, next) => {
 	console.log(corpo);
 	async function executar(){
 		try {
+      const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -73,6 +81,9 @@ router.post("/contatos", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -80,6 +91,7 @@ router.post("/contatos", (req, res, next) => {
 router.put("/contatos", (req, res, next) => {
 	async function executar(){
 		try {
+      const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -93,6 +105,9 @@ router.put("/contatos", (req, res, next) => {
 		catch(erro){
 			console.error("Erro:",erro.stack);
 		}
+		finally{
+			cliente.close();
+		}
 	}
 	executar();
 });
@@ -100,6 +115,7 @@ router.put("/contatos", (req, res, next) => {
 router.delete("/contatos/:id", (req, res, next) => {
 	async function executar(){
 		try {
+      const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -109,6 +125,9 @@ router.delete("/contatos/:id", (req, res, next) => {
 		}
 		catch(erro){
 			console.error("Erro:",erro.stack);
+		}
+		finally{
+			cliente.close();
 		}
 	}
 	executar();
