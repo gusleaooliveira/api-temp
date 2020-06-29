@@ -52,7 +52,7 @@ router.get("/imagens/minimo", (req, res, next) => {
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
-			let resposta = await colecao.find({"imagem": "minimo"}).toArray();
+			let resposta = await colecao.find({"tamanho": "minimo"}).toArray();
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
 			res.status(200).send(resposta);
