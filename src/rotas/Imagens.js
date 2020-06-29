@@ -24,8 +24,8 @@ router.use((req, res, next) => {
 
 router.get("/imagens", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -47,8 +47,8 @@ router.get("/imagens", (req, res, next) => {
 
 router.get("/imagens/minimo", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -69,8 +69,8 @@ router.get("/imagens/minimo", (req, res, next) => {
 
 router.get("/imagens/menor", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -92,8 +92,8 @@ router.get("/imagens/menor", (req, res, next) => {
 
 router.get("/imagens/medio", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -115,8 +115,8 @@ router.get("/imagens/medio", (req, res, next) => {
 
 router.get("/imagens/gigante", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -138,8 +138,8 @@ router.get("/imagens/gigante", (req, res, next) => {
 
 router.get("/imagens/xgigante", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -160,8 +160,8 @@ router.get("/imagens/xgigante", (req, res, next) => {
 
 router.get("/imagens/:id", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -184,8 +184,8 @@ router.post("/imagens", (req, res, next) => {
 	let corpo = req.body;
 	console.log(corpo);
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -205,8 +205,8 @@ router.post("/imagens", (req, res, next) => {
 
 router.put("/imagens", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
@@ -229,8 +229,8 @@ router.put("/imagens", (req, res, next) => {
 
 router.delete("/imagens/:id", (req, res, next) => {
 	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
 		try {
-			const cliente =  new MongoClient(url, {useNewUrlParser: true});
 			await cliente.connect();
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
