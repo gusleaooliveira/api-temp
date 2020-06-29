@@ -37,7 +37,7 @@ router.get("/contatos", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -59,7 +59,7 @@ router.get("/contatos/:id", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -82,7 +82,7 @@ router.post("/contatos", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -106,7 +106,7 @@ router.put("/contatos", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -127,7 +127,7 @@ router.delete("/contatos/:id", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();

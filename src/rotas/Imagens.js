@@ -38,7 +38,7 @@ router.get("/imagens", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -61,7 +61,7 @@ router.get("/imagens/minimo", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -83,7 +83,7 @@ router.get("/imagens/menor", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -106,7 +106,7 @@ router.get("/imagens/medio", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -129,7 +129,7 @@ router.get("/imagens/gigante", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -152,7 +152,7 @@ router.get("/imagens/xgigante", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -174,7 +174,7 @@ router.get("/imagens/:id", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -197,7 +197,7 @@ router.post("/imagens", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -242,7 +242,7 @@ router.delete("/imagens/:id", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();

@@ -38,7 +38,7 @@ router.get("/depoimentos", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -60,7 +60,7 @@ router.get("/depoimentos/:id", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -83,7 +83,7 @@ router.post("/depoimentos", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -107,7 +107,7 @@ router.put("/depoimentos", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
@@ -128,7 +128,7 @@ router.delete("/depoimentos/:id", (req, res, next) => {
 			console.error("Erro:",erro.stack);
 		}
 		finally{
-			cliente.close();
+			await cliente.close();
 		}
 	}
 	executar();
