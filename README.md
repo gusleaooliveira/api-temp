@@ -30,14 +30,14 @@ Outras que serão utilizadas serão o `oauth`  para a autenticação na url `not
 Mandar e receber os dados com o `jwt`.
 
 ## Checklist
-- [ ] Crud de dados em todas das urls
-- [ ] Retorno em formato json das urls
+- [x] Crud de dados em todas das urls
+- [x] Retorno em formato json das urls
 - [x] Hospedagem funcionando
 - [x] Execução da api funcionando
-- [ ] Frontend utilizado o mesmo da matéria de dispositivos mobile, localizados [aqui](https://gusleaooliveira.github.io/MRConstrucaoApp/).
+- [x] Frontend utilizado o mesmo da matéria de dispositivos mobile, localizados [aqui](https://gusleaooliveira.github.io/MRConstrucaoApp/).
 
 ### Extras
-- [ ] Fazer o frontend em react
+- [x] Fazer o frontend em react
 
 # Criador
 Olá me chamo Gustavo, e criei este material, para mais informações, clique nos links abaixo:
