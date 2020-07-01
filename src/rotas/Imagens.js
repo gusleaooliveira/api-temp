@@ -45,6 +45,59 @@ router.get("/imagens", (req, res, next) => {
 });
 
 
+router.get("/imagens/:quantidade", (req, res, next) => {
+	let quantidade = req.params.quantidade;
+	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.aggregate([
+				{$sample: {size: parseInt(quantidade)}}
+			]).toArray();
+
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+		finally{
+			await cliente.close();
+		}
+	}
+	executar();
+});
+
+router.get("/imagens/minimo/:quantidade", (req, res, next) => {
+	let quantidade = req.params.quantidade;
+	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.aggregate([
+				{$match: {tamanho: "minimo"}},
+				{$sample: {size: parseInt(quantidade)}}
+			]).toArray();
+
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+		finally{
+			await cliente.close();
+		}
+	}
+	executar();
+});
+
 router.get("/imagens/minimo", (req, res, next) => {
 	async function executar(){
 		const cliente =  new MongoClient(url, {useNewUrlParser: true});
@@ -89,6 +142,32 @@ router.get("/imagens/menor", (req, res, next) => {
 	executar();
 });
 
+router.get("/imagens/menor/:quantidade", (req, res, next) => {
+	let quantidade = req.params.quantidade;
+	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.aggregate([
+				{$match: {tamanho: "menor"}},
+				{$sample: {size: parseInt(quantidade)}}
+			]).toArray();
+
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+		finally{
+			await cliente.close();
+		}
+	}
+	executar();
+});
 
 router.get("/imagens/medio", (req, res, next) => {
 	async function executar(){
@@ -112,6 +191,32 @@ router.get("/imagens/medio", (req, res, next) => {
 	executar();
 });
 
+router.get("/imagens/medio/:quantidade", (req, res, next) => {
+	let quantidade = req.params.quantidade;
+	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.aggregate([
+				{$match: {tamanho: "medio"}},
+				{$sample: {size: parseInt(quantidade)}}
+			]).toArray();
+
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+		finally{
+			await cliente.close();
+		}
+	}
+	executar();
+});
 
 router.get("/imagens/gigante", (req, res, next) => {
 	async function executar(){
@@ -135,6 +240,32 @@ router.get("/imagens/gigante", (req, res, next) => {
 	executar();
 });
 
+router.get("/imagens/gigante/:quantidade", (req, res, next) => {
+	let quantidade = req.params.quantidade;
+	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.aggregate([
+				{$match: {tamanho: "gigante"}},
+				{$sample: {size: parseInt(quantidade)}}
+			]).toArray();
+
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+		finally{
+			await cliente.close();
+		}
+	}
+	executar();
+});
 
 router.get("/imagens/xgigante", (req, res, next) => {
 	async function executar(){
@@ -144,6 +275,33 @@ router.get("/imagens/xgigante", (req, res, next) => {
 			let db = cliente.db(banco);
 			let colecao = db.collection(collection);
 			let resposta = await colecao.find({"tamanho": "xgigante"}).toArray();
+			console.log("Resposta:",resposta);
+			console.log("==============================================");
+			res.status(200).send(resposta);
+		}
+		catch(erro){
+			console.error("Erro:",erro.stack);
+		}
+		finally{
+			await cliente.close();
+		}
+	}
+	executar();
+});
+
+router.get("/imagens/xgigante/:quantidade", (req, res, next) => {
+	let quantidade = req.params.quantidade;
+	async function executar(){
+		const cliente =  new MongoClient(url, {useNewUrlParser: true});
+		try {
+			await cliente.connect();
+			let db = cliente.db(banco);
+			let colecao = db.collection(collection);
+			let resposta = await colecao.aggregate([
+				{$match: {tamanho: "xgigante"}},
+				{$sample: {size: parseInt(quantidade)}}
+			]).toArray();
+
 			console.log("Resposta:",resposta);
 			console.log("==============================================");
 			res.status(200).send(resposta);
