@@ -5,7 +5,7 @@ const rotaImagens = require("./rotas/Imagens");
 const app = express();
 
 
-app.use(rotaDepoimentos);
+//app.use(rotaDepoimentos);
 app.use(rotaContatos);
 app.use(rotaImagens);
 
